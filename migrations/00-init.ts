@@ -1,4 +1,4 @@
-import { insertPermissions, insertRolePermissions } from "@uac/migrations/util";
+import { insertPermissions, insertRolePermissions } from "../../uac/migrations/util";
 import { database } from "../../core/database";
 import { IMigration } from "../../core/dbMigrations";
 import { galleryImagesTable } from "./tables";

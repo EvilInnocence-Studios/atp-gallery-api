@@ -4,7 +4,7 @@ import { Image } from "./services";
 import { getBody, getFile, getParam, getUserPermissions } from "../../core/express/extractors";
 import { HandlerArgs } from "../../core/express/types";
 import { Query } from "../../core-shared/express/types";
-import { IGalleryImage, NewGalleryImage } from "src/gallery-shared/image/types";
+import { IGalleryImage, NewGalleryImage } from "../../gallery-shared/image/types";
 
 class ImageHandlerClass {
     @CheckPermissions("galleryImage.create")
