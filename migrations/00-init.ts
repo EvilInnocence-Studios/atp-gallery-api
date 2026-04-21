@@ -1,7 +1,7 @@
 import { insertPermissions, insertRolePermissions } from "../../uac/migrations/util";
 import { database } from "../../core/database";
 import { IMigration } from "../../core/dbMigrations";
-import { galleryImagesTable } from "./tables";
+import { galleryImagesTable, galleryImageTagsTable } from "./tables";
 
 const db = database();
 
@@ -25,8 +25,10 @@ export const init: IMigration = {
     order: 3,
     up: async () => {
         await db.schema.createTable("galleryImages", galleryImagesTable);
+        await db.schema.createTable("galleryImageTags", galleryImageTagsTable);
     },
     down: async () => {
+        await db.schema.dropTableIfExists("galleryImageTags");
         await db.schema.dropTableIfExists("galleryImages");
     },
     initData: async () => {

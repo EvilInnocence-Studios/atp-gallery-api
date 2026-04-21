@@ -1,7 +1,8 @@
 import { Setting } from "../../common/setting/service";
 import { mediaService } from "../../core/express/service/media";
 import { IGalleryImage, NewGalleryImage } from "../../gallery-shared/image/types";
-import { basicCrudService } from "../../core/express/service/common";
+import { basicCrudService, basicRelationService } from "../../core/express/service/common";
+import { ITag } from "@common-shared/tag/types";
 
 const ImageBasic = basicCrudService<IGalleryImage>("galleryImages", "title");
 
@@ -15,5 +16,6 @@ export const Image = {
         getFolder: () => Setting.get("gallery.imageFolder"),
         getEntity: ImageBasic.loadById,
         getFileName: (media: IGalleryImage) => media.url,
-    })
+    }),
+    tags: basicRelationService<ITag>("galleryImageTags", "imageId", "tags", "tagId"),
 };

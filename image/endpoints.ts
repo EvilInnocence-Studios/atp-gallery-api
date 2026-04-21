@@ -15,6 +15,13 @@ export const ImageEndpoints = {
             GET: get(ImageHandlers.get),
             PATCH: patch(ImageHandlers.update),
             DELETE: del(ImageHandlers.remove),
+            tag: {
+                GET: get(ImageHandlers.getTags),
+                POST: post(ImageHandlers.addTag),
+                ":tagId": {
+                    DELETE: del(ImageHandlers.removeTag),
+                }
+            }
         }
     }
 };

@@ -9,3 +9,10 @@ export const galleryImagesTable = (t:Knex.CreateTableBuilder) => {
     t.smallint("sortOrder").notNullable().defaultTo(0);
     t.date("postDate").nullable();
 }
+
+export const galleryImageTagsTable = (t:Knex.CreateTableBuilder) => {
+    t.bigIncrements();
+    t.bigInteger("imageId").notNullable().references("galleryImages.id").onDelete("CASCADE");
+    t.bigInteger("tagId").notNullable().references("tags.id").onDelete("CASCADE");
+    t.unique(["imageId", "tagId"]);
+}
