@@ -1,5 +1,5 @@
-import { init } from "./migrations/00-init";
-import { addTags } from "./migrations/01-addTags";
+import { init } from "../gallery/migrations/00-init";
+import { addTags } from "../gallery/migrations/01-addTags";
 
 export { apiConfig } from "./endpoints";
 
