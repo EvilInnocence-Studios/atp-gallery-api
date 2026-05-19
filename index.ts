@@ -11,5 +11,11 @@ export const migrations = [
 
 export const setupMigrations = [init];
 
-FieldRegistry.register("galleryImages", ["title", "url", "description", "enabled", "sortOrder", "postDate"]);
-FieldRegistry.register("galleryImageTags", []);
+FieldRegistry.register("galleryImages", {
+    create: ["title", "url", "description", "enabled", "sortOrder", "postDate"],
+    update: ["title", "url", "description", "enabled", "sortOrder", "postDate"],
+});
+FieldRegistry.register("galleryImageTags", {
+    create: ["imageId", "tagId"],
+    update: [],
+});
