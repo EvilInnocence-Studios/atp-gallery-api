@@ -1,4 +1,4 @@
-import { FieldRegistry } from "@core/express/util";
+import { FieldRegistry } from "../core/express/util";
 import { init } from "../gallery/migrations/00-init";
 import { addTags } from "../gallery/migrations/01-addTags";
 
