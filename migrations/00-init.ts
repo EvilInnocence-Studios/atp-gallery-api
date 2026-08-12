@@ -1,4 +1,5 @@
 import { insertPermissions, insertRolePermissions } from "../../uac/migrations/util";
+import { insertSettings } from "../../common/migrations/util";
 import { database } from "../../core/database";
 import { IMigration } from "../../core/dbMigrations";
 import { galleryImagesTable, galleryImageTagsTable } from "./tables";
@@ -34,5 +35,8 @@ export const init: IMigration = {
     initData: async () => {
         await insertPermissions(db, permissions);
         await insertRolePermissions(db, rolePermissions);
+        await insertSettings(db, [
+            { key: "gallery.imageFolder", value: "gallery/images" }
+        ]);
     }
 };
